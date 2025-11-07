@@ -1,0 +1,6 @@
+@LongJob_HostAddress = http://localhost:5165
+
+GET {{LongJob_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
