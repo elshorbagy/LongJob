@@ -1,0 +1,22 @@
+<div class="container" style="max-width:700px;margin:40px auto;font-family:system-ui,Segoe UI,Roboto,Arial;">
+  <h2>Long-Running Processing (Angular + .NET 8 SSE)</h2>
+
+  <label>Input</label>
+  <textarea [(ngModel)]="input" rows="4" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px" placeholder="Type text..."></textarea>
+
+  <div style="margin:12px 0; display:flex; gap:8px;">
+    <button (click)="onProcess()" [disabled]="busy" style="padding:8px 12px;border-radius:6px;border:0;background:#2979ff;color:#fff;">
+      Process
+    </button>
+    <button (click)="onCancel()" [disabled]="!busy" style="padding:8px 12px;border-radius:6px;border:1px solid #d33;background:#fff;color:#d33;">
+      Cancel
+    </button>
+  </div>
+
+  <div *ngIf="busy" style="height:10px;background:#eee;border-radius:6px;overflow:hidden;margin-bottom:8px;">
+    <div [style.width.%]="progress" style="height:100%;background:#2979ff;transition:width .3s;"></div>
+  </div>
+
+  <label>Result (live)</label>
+  <textarea [value]="result" rows="4" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px" readonly></textarea>
+</div>

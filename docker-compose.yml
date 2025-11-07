@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: LongJob/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+    expose:
+      - "8080"
+    networks:
+      - appnet
+
+  ui:
+    build:
+      context: ./Client
+      dockerfile: Dockerfile
+    expose:
+      - "80"
+    networks:
+      - appnet
+
+  proxy:
+    image: nginx:alpine
+    depends_on:
+      - ui
+      - api
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./deploy/proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./deploy/proxy/htpasswd:/etc/nginx/htpasswd:ro
+      - ./deploy/proxy/certs:/etc/nginx/certs:ro
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
