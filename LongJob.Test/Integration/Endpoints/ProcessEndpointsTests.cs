@@ -131,7 +131,7 @@ public class ProcessEndpointsTests
     }
 
     [TestMethod]
-    public async Task Get_Stream_ValidJobId_Sends_SSE_Data_Lines()
+    public async Task Get_Stream_ValidJobId_Sends_Data_Lines()
     {
         // Arrange
         var (host, client, svc) = await CreateHostAsync();
@@ -157,7 +157,7 @@ public class ProcessEndpointsTests
     [TestMethod]
     public async Task Delete_InvalidJobId_Returns400()
     {
-        var (host, client, svc) = await CreateHostAsync();
+        var (host, client, _) = await CreateHostAsync();
 
         var resp = await client.DeleteAsync("/api/jobs/badid");
         Assert.AreEqual(HttpStatusCode.BadRequest, resp.StatusCode);
