@@ -67,7 +67,8 @@ Method	Endpoint	Description
 POST	/api/jobs	Start a new long-running job, returns jobId
 GET	/api/jobs/{jobId}/stream	Stream output of the job via Server-Sent Events
 DELETE	/api/jobs/{jobId}	Cancel a running job
-🧪 Testing
+
+Testing
 
 Unit tests use MSTest with NSubstitute to verify:
 
