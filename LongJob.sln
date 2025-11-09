@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongJob.Infrastructure", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongJob.Domain", "LongJob.Domain\LongJob.Domain.csproj", "{4FC7ED4B-FFD3-4637-B319-D6CBF2358E77}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongJob.Test", "LongJob.Test\LongJob.Test.csproj", "{82548DC0-9608-414A-8C0E-F4A8719B0E8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,9 +45,16 @@ Global
 		{4FC7ED4B-FFD3-4637-B319-D6CBF2358E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FC7ED4B-FFD3-4637-B319-D6CBF2358E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FC7ED4B-FFD3-4637-B319-D6CBF2358E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82548DC0-9608-414A-8C0E-F4A8719B0E8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82548DC0-9608-414A-8C0E-F4A8719B0E8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82548DC0-9608-414A-8C0E-F4A8719B0E8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82548DC0-9608-414A-8C0E-F4A8719B0E8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{82548DC0-9608-414A-8C0E-F4A8719B0E8D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7AC919B4-1814-4D35-BE38-70E6AA549646}

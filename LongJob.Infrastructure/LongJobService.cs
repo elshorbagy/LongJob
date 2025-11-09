@@ -6,17 +6,12 @@ using Microsoft.Extensions.Logging;
 
 namespace LongJob.Infrastructure;
 
-public sealed class LongJobService : ILongJobService
+public sealed class LongJobService(ILogger<LongJobService> logger) : ILongJobService
 {
     private readonly ConcurrentDictionary<string, string> _payloads = new();
     private readonly ConcurrentDictionary<string, CancellationTokenSource> _ctsMap = new();
     private readonly Random _random = new();
-    private readonly ILogger<LongJobService> _logger;
-
-    public LongJobService(ILogger<LongJobService> logger)
-    {
-        _logger = logger;
-    }
+    private readonly ILogger<LongJobService> _logger = logger;
 
     public string StartJob(string input)
     {
@@ -25,7 +20,7 @@ public sealed class LongJobService : ILongJobService
 
         _logger.LogInformation("Starting new job. JobId={JobId}, InputLength={InputLength}", jobId, inputLength);
 
-        var output = TextProcessingService.BuildOutput(input);
+        var output = TextProcessingService.BuildOutput(input!);
         _payloads[jobId] = output;
 
         var cts = new CancellationTokenSource();
